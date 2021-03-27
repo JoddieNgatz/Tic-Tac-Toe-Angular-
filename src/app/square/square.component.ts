@@ -11,6 +11,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SquareComponent  {
 
-  //Dumb component @Input()value: 'X' | 'O' = "X";
-  @Input()value: 'X' | 'O' = "X";
+  @Input()
+  value?: 'X' | 'O' | null;
+  @Input() valu: any;
 }

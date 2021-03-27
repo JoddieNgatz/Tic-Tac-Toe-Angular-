@@ -1,6 +1,5 @@
-import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -9,30 +8,35 @@ import { Component, OnInit } from '@angular/core';
   
   //smart component, internal state that can change
 export class BoardComponent implements OnInit {
-  squares: any[] = [];
-  xIsNext: boolean = false;
-  winner: string ='X';
-  constructor() { }
+  squares!: string[];
+  xIsNext!: boolean;
+  winner!: string | null;
 
-  ngOnInit(): void {
+  constructor() {}
+
+  ngOnInit() {
     this.newGame();
   }
+
   newGame() {
     this.squares = Array(9).fill(null);
-    this.winner;
+    this.winner = null;
     this.xIsNext = true;
   }
+
   get player() {
-    //return this.xIsNext ? '0' : 'X';
     return this.xIsNext ? 'X' : 'O';
   }
+
   makeMove(idx: number) {
     if (!this.squares[idx]) {
       this.squares.splice(idx, 1, this.player);
       this.xIsNext = !this.xIsNext;
     }
+
     this.winner = this.calculateWinner();
   }
+
   calculateWinner() {
     const lines = [
       [0, 1, 2],
