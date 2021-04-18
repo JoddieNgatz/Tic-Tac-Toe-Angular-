@@ -1,4 +1,3 @@
-import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-board',
@@ -8,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   
   //smart component, internal state that can change
 export class BoardComponent implements OnInit {
-  squares!: string[];
-  xIsNext!: boolean;
-  winner!: string | null;
+ 
+
+  squares!: any[];
+  xIsNext: boolean = false;
+  winner: string = '';
 
   constructor() {}
 
@@ -20,7 +21,7 @@ export class BoardComponent implements OnInit {
 
   newGame() {
     this.squares = Array(9).fill(null);
-    this.winner = null;
+    this.winner = 'none';
     this.xIsNext = true;
   }
 
