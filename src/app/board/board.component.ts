@@ -1,3 +1,4 @@
+import { isFormattedError } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-board',
@@ -11,7 +12,9 @@ export class BoardComponent implements OnInit {
 
   squares!: any[];
   xIsNext: boolean = false;
-  winner: string = '';
+  winner!: string;
+  score!: number;
+  this: any;
 
   constructor() {}
 
@@ -21,10 +24,14 @@ export class BoardComponent implements OnInit {
 
   newGame() {
     this.squares = Array(9).fill(null);
-    this.winner = 'none';
+    this.winner = ' ';
     this.xIsNext = true;
-  }
+   
 
+  }
+  ai() {
+    alert('play with ai');
+  }
   get player() {
     return this.xIsNext ? 'X' : 'O';
   }
@@ -56,8 +63,14 @@ export class BoardComponent implements OnInit {
         this.squares[a] === this.squares[b] &&
         this.squares[a] === this.squares[c]
       ) {
+        this.score = 1;
         return this.squares[a];
+       
       }
+      // else {
+      //   //this.newGame();
+      //   return 'draw. Play Again.';
+      // }
     }
     return null;
   }
