@@ -24,14 +24,15 @@ export class BoardComponent implements OnInit {
 
   newGame() {
     this.squares = Array(9).fill(null);
-    this.winner = ' ';
+    this.winner;
     this.xIsNext = true;
    
 
   }
   ai() {
-    alert('play with ai');
+   
   }
+
   get player() {
     return this.xIsNext ? 'X' : 'O';
   }
@@ -64,8 +65,10 @@ export class BoardComponent implements OnInit {
         this.squares[a] === this.squares[c]
       ) {
         this.score = 1;
+        
+        alert("player" + this.squares[a] + "Won");
+
         return this.squares[a];
-       
       }
       // else {
       //   //this.newGame();
