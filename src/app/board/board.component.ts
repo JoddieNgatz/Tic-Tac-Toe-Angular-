@@ -29,9 +29,6 @@ export class BoardComponent implements OnInit {
    
 
   }
-  ai() {
-   
-  }
 
   get player() {
     return this.xIsNext ? 'X' : 'O';
