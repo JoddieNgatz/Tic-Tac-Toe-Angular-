@@ -5,21 +5,25 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss']
 })
-  
+   
   //smart component, internal state that can change
 export class BoardComponent implements OnInit {
  
-
+ 
   squares!: any[];
   xIsNext: boolean = false;
   winner!: string;
   score!: number;
   this: any;
-
-  constructor() {}
+  scores!: any[];
+  constructor() {
+    
+  //let scores = new Map();
+  }
 
   ngOnInit() {
     this.newGame();
+    
   }
 
   newGame() {
@@ -27,7 +31,6 @@ export class BoardComponent implements OnInit {
     this.winner;
     this.xIsNext = true;
    
-
   }
 
   get player() {
@@ -61,15 +64,22 @@ export class BoardComponent implements OnInit {
         this.squares[a] === this.squares[b] &&
         this.squares[a] === this.squares[c]
       ) {
-        this.score = 1;
-        
-        alert("player" + this.squares[a] + "Won");
+        //let scores = new Map();
+       
+        this.score=+1;
+        //scores.set(this.squares[a], this.score); 
+        alert("player: " + this.squares[a] + "Won");
+       
 
         return this.squares[a];
       }
-      // else {
+      // else if(   this.squares[a] &&
+      //   this.squares[a] !== this.squares[b] &&
+      //   this.squares[a] !== this.squares[c]) {
       //   //this.newGame();
-      //   return 'draw. Play Again.';
+      //   if (this.squares[a] !== "x" || this.squares[a] !== "O") {
+      //   return 'Draw. Play Again';
+      //   }
       // }
     }
     return null;

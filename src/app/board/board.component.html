@@ -1,29 +1,36 @@
 
 <div class='buttonText'>
 
-<span id="text">
-<h1>Current Player: {{ player }} </h1>
-</span>
+        <span id="text">
 
-<button nbButton hero status="danger" (click)="newGame()">Start new Game</button>
+                <h1 *ngIf="!winner">
+                Current Player: {{ player }} 
+                </h1>
+
+                <h2 *ngIf="winner">
+                    Player {{ winner }} won the game!
+                </h2>
+
+                 <h2 *ngIf="score > 0">
+                    Score:  {{ winner  }} + {{ score }}!
+                </h2>
+        </span>
+
+    <button nbButton hero status="danger" (click)="newGame()">Start new Game</button>
 
 
 </div>
 
 <div class="center">
-<h2 *ngIf="winner">
-    Player {{ winner }} won the game!
-</h2>
 
+        <main>
+            <app-square 
+                *ngFor="let val of squares; let i = index" 
+                [value]="val"
+                (click)="makeMove(i)"> 
 
-<main>
-    <app-square 
-        *ngFor="let val of squares; let i = index" 
-        [value]="val"
-        (click)="makeMove(i)"> 
+            </app-square>
 
-    </app-square>
-
-</main>
+        </main>
 
 </div>
