@@ -21,8 +21,29 @@ export class BoardComponent implements OnInit {
 
   newGame() {
     this.squares = Array(9).fill(null);
-    this.winner = 'none';
+    this.winner;
     this.xIsNext = true;
+   
+
+  }
+  ai(idx: number) {
+    //AI makes turn
+    // let available = [];
+    // for (let i = 0; i < 3; i++){
+    //   for (let j = 0; j < 3; j++){
+    //     if (!this.squares[idx]) {
+    //       this.squares.splice(idx, 1, this.player);
+    //       this.xIsNext = !this.xIsNext;
+    //     }
+    //   }
+    // }
+    // if (!this.squares[idx]) {
+    //   this.squares.splice(idx, 1, this.player);
+    //   this.xIsNext = !this.xIsNext;
+    // }
+
+    // this.winner = this.calculateWinner();
+    
   }
 
   get player() {
