@@ -1,3 +1,4 @@
+import { isFormattedError } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-board',
@@ -11,7 +12,9 @@ export class BoardComponent implements OnInit {
 
   squares!: any[];
   xIsNext: boolean = false;
-  winner: string = '';
+  winner!: string;
+  score!: number;
+  this: any;
 
   constructor() {}
 
@@ -25,25 +28,6 @@ export class BoardComponent implements OnInit {
     this.xIsNext = true;
    
 
-  }
-  ai(idx: number) {
-    //AI makes turn
-    // let available = [];
-    // for (let i = 0; i < 3; i++){
-    //   for (let j = 0; j < 3; j++){
-    //     if (!this.squares[idx]) {
-    //       this.squares.splice(idx, 1, this.player);
-    //       this.xIsNext = !this.xIsNext;
-    //     }
-    //   }
-    // }
-    // if (!this.squares[idx]) {
-    //   this.squares.splice(idx, 1, this.player);
-    //   this.xIsNext = !this.xIsNext;
-    // }
-
-    // this.winner = this.calculateWinner();
-    
   }
 
   get player() {
@@ -77,8 +61,16 @@ export class BoardComponent implements OnInit {
         this.squares[a] === this.squares[b] &&
         this.squares[a] === this.squares[c]
       ) {
+        this.score = 1;
+        
+        alert("player" + this.squares[a] + "Won");
+
         return this.squares[a];
       }
+      // else {
+      //   //this.newGame();
+      //   return 'draw. Play Again.';
+      // }
     }
     return null;
   }

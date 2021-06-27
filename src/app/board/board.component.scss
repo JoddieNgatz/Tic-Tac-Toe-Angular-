@@ -10,3 +10,19 @@ app-square{
     height: 200px;
     
 }
+
+.center{
+    display: flex; 
+    justify-content:center; 
+    align-items:center;
+}
+
+.buttonText{
+    display: inline;
+    display: flex;
+    justify-content:center; 
+    align-items:center;
+}
+#text{
+    padding: 0px 10px 0px ;
+}
