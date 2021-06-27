@@ -1,13 +1,16 @@
+
+<div class='buttonText'>
+
+<span id="text">
 <h1>Current Player: {{ player }} </h1>
+</span>
 
-
-<div class="btn-toolbar pull-center">
 <button nbButton hero status="danger" (click)="newGame()">Start new Game</button>
 
-<button nbButton hero status="info" (click)="ai()">Play vs AI</button>
 
 </div>
 
+<div class="center">
 <h2 *ngIf="winner">
     Player {{ winner }} won the game!
 </h2>
@@ -21,6 +24,6 @@
 
     </app-square>
 
-
-
 </main>
+
+</div>
