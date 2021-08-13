@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-projects-7f1d3": {
+      "hosting": {
+        "tictac": [
+          "angular-projects-7f1d3"
+        ]
+      }
+    }
+  }
+}
